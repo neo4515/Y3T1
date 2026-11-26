@@ -6,7 +6,7 @@ public class ObstacleDestroyer : MonoBehaviour
     {
         if (other.CompareTag("Obstacle") || other.GetComponent<ObstacleController>() != null)
         {
-            Destroy(other.gameObject);  
+            Destroy(other.gameObject);
         }
     }
 }

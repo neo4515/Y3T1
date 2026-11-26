@@ -4,7 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Settings")]
     public int maxHealth = 3;
-    private int currentHealth;
+    public int currentHealth;
 
     void Start()
     {
@@ -20,6 +20,12 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void HealToFull(int maxHealth)
+    {
+        currentHealth = maxHealth;
+        Debug.Log("Healing Complete: " + currentHealth);
     }
 
     void Die()

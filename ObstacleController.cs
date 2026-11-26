@@ -12,13 +12,13 @@ public class ObstacleController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+        if (BattleManager.Instance != null && !BattleManager.Instance.isBattleActive)
         {
-            PlayerHealth player = other.GetComponent<PlayerHealth>();
-            if (player != null)
-            {
-                player.TakeDamage(1);
-            }
+            int obstacleDamage = 1;
+            BattleManager.Instance.DamageMainPhaseHealth(obstacleDamage);
         }
+        Destroy(gameObject);
     }
 }
